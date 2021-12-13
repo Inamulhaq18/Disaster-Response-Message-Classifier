@@ -3,6 +3,8 @@
 
 This project involves working with a figure8 disaster response dataset, to build and deploy a machine learning classifier, to classify messages to reach their respective disaster response departments.
 
+![Screenshot](screen.png)
+
 ## Installations
 
 Following libraries were used (preinstalled):
