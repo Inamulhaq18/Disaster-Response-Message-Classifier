@@ -1,12 +1,9 @@
 # Disaster Response Pipeline
 
 
-Udacity project: Analyze disaster data fro Figure Eight and build a model for an API that classifies disaster messages.
+This project involves working with a figure8 disaster response dataset, to build and deploy a machine learning classifier, to classify messages to reach their respective disaster response departments.
 
-Templates for the scripts were provided in the workspace.
-
-Installations
-The project has been conducted in the Udacity workspace environment provided.
+## Installations
 
 Following libraries were used (preinstalled):
 
@@ -17,40 +14,34 @@ sklearn
 sqlalchemy
 pickle
 re
-Project components:
+##Project components:
 The project consists of three components
 
-1. ETL Pipeline
+### 1. ETL Pipeline
 
-Loads the messages and categories datasets
-Merges the two datasets
-Cleans the data
-Stores it in a SQLite database
-2. ML Pipeline
+Explore the database provided by figure8
+Clean the database and distribute the columns for eact category
+Make a SQL DB file
 
-Loads data from the SQLite database
-Splits the dataset into training and test sets
-Builds a text processing and machine learning pipeline
-Trains and tunes a model using GridSearchCV
-Outputs results on the test set
-Exports the final model as a pickle file
-3. Flask web app
+### 2. ML Pipeline
 
-categorize new messages
-visualisations of the training set genres, categories and social media categories.
-Instructions:
-Run the following commands in the project's root directory to set up your database and model.
+Use the DB created in the last step 
+Build a ML pipeline using multioutput classifer
+Use grid search to find the best parameters 
+Save the model as a pickel file
 
-To run ETL pipeline that cleans data and stores in database python data/process_data.py data/disaster_messages.csv data/disaster_categories.csv data/DisasterResponse.db
-To run ML pipeline that trains classifier and saves python models/train_classifier.py data/DisasterResponse.db models/classifier.pkl
-Run the following command in the app's directory to run your web app. python run.py
+### 3. Flask web app
 
-Go to http://0.0.0.0:3001/
+Use the Flask library to host the project
+Use the Templates provided by Udacity for the front-end of the system
+use the pickel file to load the model and classify the messages 
+
+Go to http://0.0.0.0:3001/ or the link mentioned in the url when you run, python app.py
 
 File structure:
 Here's the file structure of the project:
 
-app
+###app
 
 | - template
 
@@ -58,9 +49,12 @@ app
 
 | |- go.html # classification result page of web app
 
-|- run.py # Flask file that runs app
+|- app.py # Flask file that runs app
+|- classifier.pkl
+|- myfirstsql.db
 
-data
+
+###data
 
 |- disaster_categories.csv # data to process
 
@@ -70,13 +64,12 @@ data
 
 |- DisasterResponse.db # database to save clean data to
 
-models
+###models
 
 |- train_classifier.py
 
 |- classifier.pkl # saved mode
 
-|- README.md
 
 Acknowledgements
 Data has been provided by Figure Eight
@@ -91,3 +84,5 @@ Along with lessons in the Udacity Data Science Nanodegree
 
 Software engineering (Pandas and Flask)
 Data engineering (ETL, NLP, ML Pipelines)
+
+Project By Inamul Haq
