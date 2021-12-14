@@ -40,11 +40,11 @@ use the pickel file to load the model and classify the messages
 
 
 ## Run the App Locally 
-execute the following command to the command promt or terminal from the app directory.
+Execute the following command to the command promt or terminal from the app directory.
 
 **python3 app.py**
 
-you need to have all the libararies installed beforing running the app.
+You need to have all the libararies installed beforing running the app.
 
 File structure:
 Here's the file structure of the project:
