@@ -12,7 +12,7 @@ Following libraries were used (preinstalled):
 pandas
 numpy
 nltk
-sklearn
+sklearn- 0.19.1
 sqlalchemy
 pickle
 re
@@ -38,7 +38,13 @@ Use the Flask library to host the project
 Use the Templates provided by Udacity for the front-end of the system
 use the pickel file to load the model and classify the messages 
 
-Go to http://0.0.0.0:3001/ or the link mentioned in the url when you run, python app.py
+
+## Run the App Locally 
+execute the following command to the command promt or terminal from the app directory.
+
+**python3 app.py**
+
+you need to have all the libararies installed beforing running the app.
 
 File structure:
 Here's the file structure of the project:
