@@ -44,14 +44,14 @@ use the pickel file to load the model and classify the messages
 Run the following commands in the project's root directory to set up your database and model.
 
 # To run ETL pipeline that cleans data and stores in database 
-_python3 data/process_data.py data/disaster_messages.csv data/disaster_categories.csv data/DisasterResponse.db
-_
+python3 data/process_data.py data/disaster_messages.csv data/disaster_categories.csv data/DisasterResponse.db
+
 # To run ML pipeline that trains classifier and saves(the second parameter passsed below is the location to save the pickel file)
-_python3 models/train_classifier.py data/DisasterResponse.db models/classifier.pkl
-_
+python3 models/train_classifier.py data/DisasterResponse.db models/classifier.pkl
+
 ##Run the following command in the app's directory to run your web app. 
-_python3 app/run.py
-_
+python3 app/run.py
+
 this should start the server and you should be able to see the app by going to http://0.0.0.0:3001/ Or Go to http://localhost:3001/
 
 You need to have all the libararies installed beforing running the app.
