@@ -58,7 +58,7 @@ You need to have all the libararies installed beforing running the app.
 File structure:
 Here's the file structure of the project:
 
-###app
+### App
 
 | - template
 
@@ -71,7 +71,7 @@ Here's the file structure of the project:
 |- myfirstsql.db
 
 
-###data
+### Data
 
 |- disaster_categories.csv # data to process
 
@@ -81,7 +81,7 @@ Here's the file structure of the project:
 
 |- DisasterResponse.db # database to save clean data to
 
-###models
+### Model
 
 |- train_classifier.py
 
