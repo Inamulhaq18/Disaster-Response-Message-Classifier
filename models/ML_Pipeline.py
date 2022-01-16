@@ -49,18 +49,22 @@ def tokenize(text):
 
 
 def build_model():
-                pipeline = Pipeline([
-                    ('vect', CountVectorizer(tokenizer=tokenize)),
-                    ('tfidf', TfidfTransformer()),
-                    ('clf', MultiOutputClassifier(estimator=AdaBoostClassifier()))
-                    ])
-                  
-                parameters = {
-                    'clf__estimator__n_estimators': [10],
-                    'clf__estimator__min_samples_split': [2],
-                    }
-                model  = GridSearchCV(pipeline, param_grid=parameters, cv=2) 
-                return model 
+    """
+    pipe line construction
+    """
+    pipeline = Pipeline([
+        ('vect', CountVectorizer(tokenizer=tokenize)),
+        ('tfidf', TfidfTransformer()),
+        ('clf', MultiOutputClassifier(RandomForestClassifier()))])
+
+    parameters = {'vect__min_df': [1, 5],
+                'tfidf__use_idf': [True, False],
+                'clf__estimator__n_estimators': [10, 25],
+                'clf__estimator__min_samples_split': [2, 4]}
+
+    cv = GridSearchCV(pipeline, param_grid=parameters)
+
+    return cv
     
 
 
