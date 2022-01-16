@@ -26,7 +26,7 @@ import re
 
 def load_data(database_filepath):
     # Initalizing a sql engine 
-    engine = create_engine('sqlite:///C:/Users/inamu/Desktop/Udacity Assisnments/myfirstsql.db')
+    engine = create_engine('sqlite:///' + database_filepath)
     #opening the database table - table2 from myfirstsql.db
     df = pd.read_sql(f'SELECT * FROM table2', engine)    
     category_names = df.columns[-36:]
@@ -56,9 +56,8 @@ def build_model():
                     ])
                   
                 parameters = {
-                    'vect__min_df':[1,10,50],
-                    'clf__estimator__learning_rate': [0.001, 0.01, 0.1],
-                    'tfidf__smooth_idf': [True, False]
+                    'clf__estimator__n_estimators': [10],
+                    'clf__estimator__min_samples_split': [2],
                     }
                 model  = GridSearchCV(pipeline, param_grid=parameters, cv=2) 
                 return model 
