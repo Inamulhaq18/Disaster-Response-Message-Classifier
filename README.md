@@ -46,13 +46,16 @@ Run the following commands in the project's root directory to set up your databa
 
 ### To run ETL pipeline that cleans data and stores in database 
 
-python3 data/ETL pipeline.py data/disaster_messages.csv data/disaster_categories.csv data/DisasterResponse.db
+python data/ETL_pipeline.py data/messages.csv data/categories.csv data/sqldatabase.db
 
 ### To run ML pipeline that trains classifier and saves(the second parameter passsed below is the location to save the pickel file)
-python3 models/ML_Pipeline.py data/DisasterResponse.db models/classifier.pkl
+
+python models/ML_Pipeline.py data/sqldatabase.db models/classifier.pkl
 
 ### Run the following command in the app's directory to run your web app. 
-python3 app/run.py
+from /app directory run:
+python app/app.py
+
 
 this should start the server and you should be able to see the app by going to http://0.0.0.0:3001/ Or Go to http://localhost:3001/
 

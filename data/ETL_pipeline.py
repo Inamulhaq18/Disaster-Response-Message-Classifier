@@ -15,7 +15,7 @@ def clean_data(df):
     categories_expanded = df["categories"].str.split(pat=";", n=-1, expand=True)
     #clean the columns and rows 
     #Using the first row to make the column names
-    row1=categories_expanded.head(0)
+    row1=categories_expanded.head(1)    
     category_colnames = []
     for i in range(0,len(row1.columns)):
      category_colnames.append(row1[i].item())
@@ -23,7 +23,6 @@ def clean_data(df):
     #clean the rows now 
     for column in categories_expanded:
      categories_expanded[column]=categories_expanded[column].apply(lambda x: re.sub('\D', '', str(x)))
-  
     #removing the numbers from the columns
     pattern = r'[0-9]'
     columns=categories_expanded.columns
@@ -36,20 +35,18 @@ def clean_data(df):
     categories_expanded.columns=new_column
     # drop the categories column from df
     
-    df=df.drop('categories', inplace=True, axis=1)
+    df.drop('categories', inplace=True, axis=1)
 
     #merge with the main dataset df
-    
     df=df.join(categories_expanded)
     
     return (df)
 
 #function to save the data to the database
 def save_data(df, database_filename):
-    engine = create_engine('sqlite:///myfirstsql.db')
-    df.to_sql(database_filename, engine, index=False)
-    print('Data saved to database'+database_filename)
-    return()
+    engine = create_engine('sqlite:///' + database_filename)
+    df.to_sql('Messages', engine, index=False, if_exists='replace')
+
 
 
 def main():

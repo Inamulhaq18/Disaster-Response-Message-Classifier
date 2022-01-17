@@ -27,8 +27,7 @@ import re
 def load_data(database_filepath):
     # Initalizing a sql engine 
     engine = create_engine('sqlite:///' + database_filepath)
-    #opening the database table - table2 from myfirstsql.db
-    df = pd.read_sql(f'SELECT * FROM table2', engine)    
+    df = pd.read_sql_table('Messages', engine)
     category_names = df.columns[-36:]
     X = df['message']
     Y = df[category_names]
