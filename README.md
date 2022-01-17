@@ -54,6 +54,7 @@ python models/ML_Pipeline.py data/sqldatabase.db models/classifier.pkl
 
 ### Run the following command in the app's directory to run your web app. 
 from /app directory run:
+
 python app/app.py
 
 
