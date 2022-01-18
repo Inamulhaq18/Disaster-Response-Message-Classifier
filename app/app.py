@@ -1,7 +1,6 @@
 import json
 import plotly
 import pandas as pd
-
 from nltk.stem import WordNetLemmatizer
 from nltk.tokenize import word_tokenize
 
@@ -30,7 +29,9 @@ def tokenize(text):
 engine = create_engine('sqlite:///../data/sqldatabase.db')
 df = pd.read_sql_table('Messages', engine)
 # load model
+
 model = joblib.load("../models/classifier.pkl")
+
 
 
 # index webpage displays cool visuals and receives user input text for model
@@ -42,6 +43,12 @@ def index():
     # TODO: Below is an example - modify to extract data for your own visuals
     genre_counts = df.groupby('genre').count()['message']
     genre_names = list(genre_counts.index)
+    #Calculating vital Parameter share in the database.
+    subdf=df[['water', 'food', 'shelter','medical_help']].astype(int)
+    Vital_counts=subdf.sum(axis = 0, skipna = True)
+    Vital_names=(list(Vital_counts.index))
+ 
+
     
     # create visuals
     # TODO: Below is an example - modify to create your own visuals
@@ -61,6 +68,24 @@ def index():
                 },
                 'xaxis': {
                     'title': "Genre"
+                }
+            }
+        },
+        {
+            'data': [
+                Bar(
+                    x=Vital_names,
+                    y=Vital_counts
+                )
+            ],
+
+            'layout': {
+                'title': 'Count of Water,Food,Shelter, and Medical_help labels in the dateset',
+                'yaxis': {
+                    'title': "Count"
+                },
+                'xaxis': {
+                    'title': "Vital Parameters"
                 }
             }
         }
