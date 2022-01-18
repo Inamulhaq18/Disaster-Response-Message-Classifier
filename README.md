@@ -44,18 +44,20 @@ use the pickel file to load the model and classify the messages
 
 Run the following commands in the project's root directory to set up your database and model.
 
-### To run ETL pipeline that cleans data and stores in database 
+## To run ETL pipeline that cleans data and stores in database 
 
 python data/ETL_pipeline.py data/messages.csv data/categories.csv data/sqldatabase.db
 
-### To run ML pipeline that trains classifier and saves(the second parameter passsed below is the location to save the pickel file)
+## To run ML pipeline that trains classifier and saves(the second parameter passsed below is the location to save the pickel file)
 
 python models/ML_Pipeline.py data/sqldatabase.db models/classifier.pkl
 
-### Run the following command in the app's directory to run your web app. 
-from /app directory run:
+## To run the webapp, 
+Step 1 - Go to the app directory 
 
-python app/app.py
+Step 2 - once inside app directory run 
+
+python app.py
 
 
 this should start the server and you should be able to see the app by going to http://0.0.0.0:3001/ Or Go to http://localhost:3001/
@@ -74,8 +76,7 @@ Here's the file structure of the project:
 | |- go.html # classification result page of web app
 
 |- app.py # Flask file that runs app
-|- classifier.pkl
-|- myfirstsql.db
+
 
 
 ### Data
